@@ -1,0 +1,40 @@
+*,
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: "League Spartan", sans-serif;
+}
+
+main {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-family: "League Spartan", sans-serif;
+}
+
+.nav-link {
+    font-size: 26px;
+    font-weight: 500;
+    margin-right: 30px;
+}
+
+.login-btn {
+    border-radius: 20px;
+    width: 130px;
+}
+
+.nav-link.active {
+    text-decoration: underline;
+}
+.what-item-title{
+    color: #d9782b;
+}
+
+.dropdown-menu {
+    background-color: #fff8f0;
+}
+.dropdown-item:hover {
+    background-color: #ffe0b3;
+}

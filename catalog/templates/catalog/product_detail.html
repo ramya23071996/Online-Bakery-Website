@@ -1,0 +1,116 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <!-- Product Image -->
+    <div class="col-md-5">
+      <img src="{% static 'images/cake1.jpg' %}" class="img-fluid rounded" alt="Choco Delight Cake">
+    </div>
+
+    <!-- Product Info -->
+    <div class="col-md-7">
+      <small class="text-muted">Cheri bakery</small>
+      <h2 class="fw-bold">CHOCO DELIGHT CAKE</h2>
+      <p style="line-height: 1.6;">
+        This delectable treat is a heavenly combination of rich, velvety chocolate and a melt-in-your-mouth texture.
+        Whether you’re a chocolate lover or looking to satisfy your sweet tooth, Choco Delight Cake is the perfect choice.
+      </p>
+      <h4 class="fw-bold">₹ 400 <span class="fs-6 text-muted">INCL. OF ALL TAXES</span></h4>
+
+      <!-- Weight Options -->
+      <div class="my-3">
+        <strong>WEIGHT:</strong>
+        <div class="btn-group ms-2" role="group">
+          <input type="radio" class="btn-check" name="weight" id="500g" checked>
+          <label class="btn btn-outline-dark" for="500g">500 G</label>
+          <input type="radio" class="btn-check" name="weight" id="1kg">
+          <label class="btn btn-outline-dark" for="1kg">1 KG</label>
+          <input type="radio" class="btn-check" name="weight" id="2kg">
+          <label class="btn btn-outline-dark" for="2kg">2 KG</label>
+          <input type="radio" class="btn-check" name="weight" id="3kg">
+          <label class="btn btn-outline-dark" for="3kg">3 KG</label>
+          <input type="radio" class="btn-check" name="weight" id="4kg">
+          <label class="btn btn-outline-dark" for="4kg">4 KG</label>
+          <input type="radio" class="btn-check" name="weight" id="5kg">
+          <label class="btn btn-outline-dark" for="5kg">5 KG</label>
+        </div>
+      </div>
+
+      <!-- Quantity -->
+      <div class="mb-3">
+        <strong>QUANTITY:</strong>
+        <select id="quantity" class="form-select w-auto d-inline-block">
+           {% for i in quantities %}
+      <option value="{{ i }}">{{ i }}</option>
+  {% endfor %}
+        </select>
+      </div>
+
+      <!-- Pincode -->
+      <div class="mb-3">
+        <label class="form-label">ENTER YOUR PINCODE *</label>
+        <input type="text" class="form-control" id="pincode" placeholder="Enter pincode">
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-grid gap-2">
+        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-warning fw-bold text-uppercase">Add To Cart</a>
+        <a href="{% url 'buy_now' product.id %}" class="btn btn-warning fw-bold text-uppercase">Buy Now</a>
+      </div>
+
+      <!-- Product Info -->
+      <div class="mt-4">
+        <h5>Nutrition:</h5>
+        <p class="border p-2">Serving Size (100g) | Calories 323 kcal, Fat 15g… (adjust text as required)</p>
+        <h5>Ingredients:</h5>
+        <p class="border p-2">Chocolate Sponge, Sugar Syrup, Chocolate Cream…</p>
+        <h5>Allergies:</h5>
+        <p class="border p-2">Allergy Advice: Contains milk…</p>
+        <small class="text-muted">**Note that all orders will be dispatched after 24 hours**</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Other Products -->
+  <div class="mt-5">
+    <h4 class="fw-bold text-center text-uppercase">You May Also Like</h4>
+
+    <div class="row mt-4">
+      <!-- Product Card 1 -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="{% static 'images/cake2.jpg' %}" class="card-img-top" alt="">
+          <div class="card-body text-center">
+            <h6 class="card-title fw-bold">BLACK FOREST CAKE</h6>
+            <small>From ₹ 600.00</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="{% static 'images/cake3.jpg' %}" class="card-img-top" alt="">
+          <div class="card-body text-center">
+            <h6 class="card-title fw-bold">KIT KAT CAKE</h6>
+            <small>From ₹ 850.00</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="{% static 'img/tiramisu.jpg' %}" class="card-img-top" alt="">
+          <div class="card-body text-center">
+            <h6 class="card-title fw-bold">TIRAMISU CAKE</h6>
+            <small>From ₹ 1250.00</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

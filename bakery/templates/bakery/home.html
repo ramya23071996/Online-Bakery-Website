@@ -1,0 +1,194 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block title %}Home — Cherii{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="home">
+  <div class="carousel-container">
+    <div class="carousel-slide active">
+      <img src="{% static 'images/casrole1.png' %}" alt="Homepage Image 1">
+    </div>
+    <div class="carousel-slide">
+      <img src="{% static 'images/casrole2.png' %}" alt="Homepage Image 2">
+    </div>
+    <div class="carousel-slide">
+      <img src="{% static 'images/casrole3.png' %}" alt="Homepage Image 3">
+    </div>
+    <div class="carousel-slide">
+      <img src="{% static 'images/casrole4.png' %}" alt="Homepage Image 4">
+    </div>
+  </div>
+
+  <div class="container my-3">
+    <h2 class="text-center mb-5 fw-bold" style="font-size: 36px; color: #d9782b;">WHY CHOOSE US</h2>
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-2">
+      <!-- Card 1 -->
+    <div class="col">
+      <div class="belief-card p-3 text-center h-100">
+        <div class="icon-circle mx-auto mb-5">
+          <img src="{% static 'images/icon3.jpg' %}" alt="Fresh Daily" class="img-fluid">
+        </div>
+        <h5 class="fw-bold" style="font-size: 30px;color: #d9782b;">Fresh, Handcrafted Daily</h5>
+        <p class="mt-2" style="font-size: 1.8rem;
+    line-height: 0.8;">
+          Every morning, our bakers start early to bring you the freshest breads,
+          pastries, and cakes — made from scratch using real, wholesome ingredients.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col">
+      <div class="belief-card p-4 text-center h-100">
+        <div class="icon-circle mx-auto mb-3">
+          <img src="{% static 'images/icon2.jpg' %}" alt="Locally Sourced" class="img-fluid">
+        </div>
+        <h5 class="fw-bold" style="font-size: 30px; color: #d9782b;">Locally Sourced Ingredients</h5>
+        <p class="mt-3" style="font-size: 1.8rem;
+   line-height: 0.8;">
+          We partner with local farms and suppliers to ensure the highest quality
+          and support our community.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col">
+      <div class="belief-card p-4 text-center h-100">
+        <div class="icon-circle mx-auto mb-3">
+          <img src="{% static 'images/icon1.jpg' %}" alt="Custom Creations" class="img-fluid">
+        </div>
+        <h5 class="fw-bold" style="font-size: 30px; color: #d9782b;">Unique & Custom Creations</h5>
+        <p class="mt-3" style="font-size: 1.8rem;
+    line-height: 0.8;">
+          From classic croissants to custom birthday cakes, we bake with creativity and care —
+          tailored to your tastes and special occasions.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col">
+      <div class="belief-card p-4 text-center h-100">
+        <div class="icon-circle mx-auto mb-3">
+          <img src="{% static 'images/icon4.jpg' %}" alt="Warm Atmosphere" class="img-fluid">
+        </div>
+        <h5 class="fw-bold" style="font-size: 30px; color: #d9782b;">Warm, Welcoming Atmosphere</h5>
+        <p class="mt-3" style="font-size: 1.8rem;
+    line-height: 0.8;">
+          We’re more than just a bakery — we’re your neighborhood spot for sweet treats,
+          good coffee, and friendly smiles.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="col">
+      <div class="belief-card p-4 text-center h-100">
+        <div class="icon-circle mx-auto mb-3">
+          <img src="{% static 'images/icon5.jpg' %}" alt="Passion" class="img-fluid">
+        </div>
+        <h5 class="fw-bold" style="font-size: 30px; color: #d9782b;">Passion for Excellence</h5>
+        <p class="mt-3" style="font-size: 1.8rem;
+    line-height: 0.8;">
+          Baking is our passion, and it shows in every detail — from the golden crust
+          to the last crumb.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="offers">
+  <h5 class="fw-bold" style="font-size: 36px;padding: 20px; text-align:center;font-weight: bold; color: #d9782b;">OFFERS & DEALS</h5>
+   <img style="width: 100%;height: 100%;object-fit: cover;" src="{% static 'images/home5.png' %}" alt="decor">
+</div>
+
+  <div class="faq-section">
+    <h5 class="fw-bold" 
+  style="font-size: 36px;padding: 30px; text-align:center;font-weight: bold; color: #d9782b;">COMMON QUOESTIONS FOR CUSTOMERS</h5>
+         <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="pe-lg-4">
+                        <div class="mb-4">
+                            <div class="faq-question">1. What kind of content do you post on your blog?</div>
+                            <div class="faq-answer">We enjoy sharing a variety of content, taking the opportunity to highlight different food items, and making fun content promoting products or local businesses.</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="faq-question">2. How often do you update the blog?</div>
+                            <div class="faq-answer">We aim to post new content weekly, though this can vary based on our schedule and the type of content we're creating.</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="faq-question">3. Can I request a blog topic or recipe?</div>
+                            <div class="faq-answer">Absolutely! We love hearing from our readers! If there's a topic or recipe you'd like to see featured, feel free to reach out through our contact form.</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="faq-question">4. Are the recipes you share easy to follow for beginners?</div>
+                            <div class="faq-answer">Yes! We strive to make our recipes accessible to cooks of all skill levels, with clear instructions and helpful tips.</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="faq-question">5. Do you feature guest posts or collaborations?</div>
+                            <div class="faq-answer">We o ccasionally feature guest posts and are always open to collaborations with other food bloggers and local businesses.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6">
+                    <div class="ps-lg-4">
+                        <img src="{% static 'images/home6.png' %}" alt="Colorful Macarons" class="faq-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <img src="{% static 'images/border.png' %}" alt="decor" class="bottom-decor">
+
+
+ <div class="testimonials-container">
+        <div class="testimonials-row">
+            <div class="testimonial-card">
+                <img src="{% static 'images/test1.jpg' %}" alt="Chef Daniel K." class="testimonial-avatar">
+                <div class="testimonial-quote">
+                    "A hidden gem with real passion behind every bake."<br>
+                    "You can taste the quality in every bite. It's clear they care deeply about their craft."
+                </div>
+                <div class="testimonial-author">— Daniel K., Chef & Culinary Enthusiast</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <img src="{% static 'images/test2.jpg' %}" alt="Lena W." class="testimonial-avatar">
+                <div class="testimonial-quote">
+                    "The kids love the cookies—and so do I!"<br>
+                    "We stop by after school for their chocolate chip cookies. Soft, gooey, and always fresh."
+                </div>
+                <div class="testimonial-author">— Lena W., Mom of Two</div>
+            </div>
+        </div>
+        
+        <div class="arrow-right"></div>
+        
+        <div class="bottom-section">
+            <div class="direct-visits">Direct visits chat item available</div>
+            <a href="#" class="see-menu">
+                <span>see menu</span>
+                <div class="see-menu-arrow"></div>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Link your home.js at the end of content block -->
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

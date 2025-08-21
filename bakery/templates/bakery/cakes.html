@@ -1,0 +1,100 @@
+{% extends "layout/base.html" %}
+
+
+{% block title %}CAKES{% endblock %}
+{% load static %}
+{% block content %}
+<style>
+    .cookies-section {
+        background-color: #fff8f2;
+        padding: 100px;
+    }
+
+    .cookies-title {
+        text-align: center;
+        font-weight: bold;
+        color: #d2691e;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .cookies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        grid-auto-rows: 450px;
+        grid-gap: 50px;
+        margin-top: 20px;
+
+    }
+
+    .cookie-card {
+        background-color: #F3E5AB;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding-bottom: 10px;
+    }
+
+    .cookie-card img {
+        width: 100%;
+        height: 80%;
+    }
+
+    .cookie-card h5 {
+        font-weight: bold;
+        font-size: 32px;
+        margin: 10px 0 5px;
+    }
+
+    .cookie-card p {
+        color: black;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .bottom-decor {
+        display: block;
+        margin: 40px auto 0;
+        max-width: 75%;
+    }
+
+    .wishlist-btn {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        padding: 6px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wishlist-btn:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: scale(1.1);
+        transition: 0.2s ease;
+    }
+</style>
+<section class="cookies-section">
+    <h2 class="cookies-title">{{ category.name }}</h2>
+    <div class="cookies-grid">
+        {% for product in products %}
+        <div class="cookie-card position-relative">
+            <a href="{% url 'catalog:add_to_wishlist' product.id %}"
+                class="wishlist-btn position-absolute top-0 end-0 m-2 text-danger fs-4" title="Add to wishlist">
+                <i class="bi bi-heart-fill"></i>
+            </a>
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+            <img src="{% static 'images/default.jpg' %}" alt="No image available">
+            {% endif %}
+            <a style="text-decoration: none; color: black;" href="{% url 'catalog:product_detail' product.id %}">
+                <h5>{{ product.name }}</h5>
+            </a>
+            <p>From: ₹ {{ product.price }} Per Kg</p>
+        </div>
+        {% endfor %}
+    </div>
+    <img src="{% static 'images/border.png' %}" alt="decor" class="bottom-decor w-100">
+</section>
+{% endblock %}

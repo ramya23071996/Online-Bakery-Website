@@ -1,0 +1,165 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block title %}Contact Us — Cherii{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+{% block content %}
+
+
+
+<section class="contact-section">
+    <div class="contact-header">
+        <h2 style="font-size: 34px;color: #D99A6C;" class="fw-bold">SEND US A MESSAGE</h2>
+        <p style="max-width: 90%; font-size: 22px;font-weight: bold;color: #333;">You can also use the form below to
+            contact us directly.Our team will get back to you within 24 hours .</p>
+    </div>
+
+    <div class="containerform ps-5">
+
+        <div class="row">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <!-- Contact Form -->
+            <form method="post" id="contactForm">
+                {% csrf_token %}
+
+                <div class="col">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="{{ form.name.id_for_label }}">Name</label>
+                            {{ form.name }}
+                            {% if form.name.errors %}
+                            <div class="text-danger mt-1">
+                                {% for error in form.name.errors %}
+                                <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">E-Mail</label>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                            <div class="text-danger mt-1">
+                                {% for error in form.email.errors %}
+                                <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="{{ form.phone_number.id_for_label }}">Phone Number</label>
+                            {{ form.phone_number }}
+                            {% if form.phone_number.errors %}
+                            <div class="text-danger mt-1">
+                                {% for error in form.phone_number.errors %}
+                                <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="{{ form.subject.id_for_label }}">Subject</label>
+                            {{ form.subject }}
+                            {% if form.subject.errors %}
+                            <div class="text-danger mt-1">
+                                {% for error in form.subject.errors %}
+                                <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.message.id_for_label }}">Message</label>
+                    {{ form.message }}
+                    {% if form.message.errors %}
+                    <div class="text-danger mt-1">
+                        {% for error in form.message.errors %}
+                        <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn btn-send">
+                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                </button>
+            </form>
+        </div>
+
+
+        <!-- Quote Section -->
+        <div class="contactimg">
+            <img src="{% static 'images/contact1.png' %}">
+        </div>
+    </div>
+</section>
+
+<section class="p-5 ps-5">
+    <div class="branches-container">
+        <h5 class="text-center fw-bold text-warning mb-4" style="color: #f4c50b;font-size: 34px; ">
+            OUR BRANCHES ACROSS TAMIL NADU
+        </h5>
+        <div class="row">
+
+            <!-- Left Column: Staggered Images -->
+            <div class="col-md-5 branch-images">
+                <img class="img1" src="{% static 'images/image 1.png' %}" class="branch-img img-fluid"
+                    alt="Branch Image 1">
+                <img class="img2" src="{% static 'images/image 2.png' %}" class="branch-img img-fluid"
+                    alt="Branch Image 2">
+                <img class="img3" src="{% static 'images/image.png' %}" class="branch-img img-fluid"
+                    alt="Branch Image 3">
+                <img class="img4" src="{% static 'images/image 1.png' %}" class="branch-img img-fluid"
+                    alt="Branch Image 4">
+                <img class="img5" src="{% static 'images/image.png' %}" class="branch-img img-fluid"
+                    alt="Branch Image 5">
+            </div>
+
+            <!-- Right Column: Branch Text -->
+            <div class="col-md-6 ps-5 branch-text">
+                <p><strong>Chennai</strong><br>No. 45, Anna Salai, T. Nagar, Chennai – 600017</p><br>
+                <p><strong>Coimbatore</strong><br>12, 1st Road, RS Puram, Coimbatore – 641002</p><br>
+                <p><strong>Madurai</strong><br>28, KK Nagar Main Road, Madurai – 625020</p><br>
+                <p><strong>Tiruchirappalli (Trichy)</strong><br>15, Anna Road, Trichy – 620018</p><br>
+                <p><strong>Salem</strong><br>10, Park Street, Fairlands, Salem – 636016</p><br>
+                <p><strong>Tirunelveli</strong><br>5, South Bypass Road, Palayamkottai, Tirunelveli – 627002</p><br>
+                <p><strong>Vellore</strong><br>7, Brough Road, Opp. Regal Bakery, Vellore – 632006</p><br>
+                <p><strong>Dindigul</strong><br>15, College Road, Dindigul – 624005</p><br>
+                <p><strong>Thanjavur</strong><br>8, Medical College Road, Thanjavur – 613004</p><br>
+                <p><strong>Kanchipuram</strong><br>3, Kamakshi Street, Kanchipuram – 631502</p><br>
+                <p><strong>Erode</strong><br>22, Bazaar Road, Erode – 638002</p><br>
+                <p><strong>Karur</strong><br>10, Gandhi Street, Karur – 639001</p><br>
+                <p><strong>Villupuram</strong><br>20, Anna Road, Villupuram – 605602</p><br>
+                <p><strong>Nagercoil</strong><br>5, Market Street, Nagercoil – 629001</p><br>
+                <p><strong>Tiruppur</strong><br>20, Avinashi Road, Tiruppur – 641602</p><br>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}

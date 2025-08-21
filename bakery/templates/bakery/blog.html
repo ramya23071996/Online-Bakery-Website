@@ -1,0 +1,88 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block title %}Blog — Cherii{% endblock %}
+{% block content %}
+
+
+<div class="blog-section">
+    <h2 class="blog-title mb-4">Welcome to Our Bakery Blog</h2>
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Image -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{% static 'images/blog1.png' %}" alt="Fresh Bread" class="img-fluid blog-img shadow">
+            </div>
+            <!-- Text -->
+            <div class="col-lg-6">
+                <h4 class="blog-subtitle">
+                    Fresh Bakes, Sweet Stories & Artisan Inspiration
+                </h4>
+                <p class="blog-text fw-bold fs-4">
+                    At Cherii Bakery, our passion for baking goes beyond the oven—it’s a story we love to share.
+                    This blog is your go-to destination for everything sweet, savory, and lovingly handmade.
+                    Whether you're a fellow baker, a food lover, or just someone who enjoys the warmth of freshly
+                    baked bread, our blog is filled with something just for you.
+                </p>
+            </div>
+        </div>
+    </div>
+
+ <div class="row align-items-center px-5">
+            <!-- Left Text -->
+            <div class="col-lg-6">
+                <h2 class="what-title">What You'll Find Here:</h2>
+
+                <div>
+                    <h5 class="what-item-title" style="color: #d9782b;">Behind-the-Scenes Stories</h5>
+                    <p class="what-text fw-bold fs-5">
+                        Get a peek inside our kitchen, meet our talented bakers, and learn what goes into creating
+                        your favorite pastries, cakes, and loaves.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="what-item-title" style="color: #d9782b;">Seasonal Specials & New Arrivals</h5>
+                    <p class="what-text fw-bold fs-5">
+                        Be the first to know about our latest menu additions, seasonal treats, and limited-edition goodies.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="what-item-title" style="color: #d9782b;">Recipes & Baking Tips</h5>
+                    <p class="what-text fw-bold fs-5">
+                        Try your hand at some of our favorite recipes and get expert tips to help you bake like a pro at home.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="what-item-title" style="color: #d9782b;">Customer Spotlights & Events</h5>
+                    <p class="what-text fw-bold fs-5">
+                        We love our community! Read about our amazing customers, featured events, and special moments
+                        shared in our bakery.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="what-item-title" style="color: #d9782b;">Sustainability & Ingredients</h5>
+                    <p class="what-text fw-bold fs-5">
+                        Learn more about the ingredients we use, our sourcing practices, and how we’re working to bake
+                        better—for you and the planet.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Image -->
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <img src="{% static 'images/blog2.png' %}" alt="Blueberry Cake" class="what-img shadow">
+            </div>
+        </div>
+
+<p class="text-center p-5" style="color: #7a4a23; font-size: 34px; font-weight: 650;line-height: 1.2; max-width: 93%;">
+    Whether you're here for mouthwatering ideas or curious about what’s next in our oven,
+    our blog is a delicious stop on your journey. Stay connected with us, leave a comment,
+    and don’t forget to subscribe so you never miss a crumb!
+</p>
+
+
+</div>
+{% endblock %}

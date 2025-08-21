@@ -1,0 +1,110 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block title %}Our Products — Cherii{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="products-section">
+    
+<h2 style="color: #d9782b;text-align: center; font-size: 34px;font-weight: bold; padding-bottom: 30px;">OUR PRODUCTS</h2>
+
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="{% static 'images/cake1.jpg' %}" alt="Cakes" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='cakes' %}" class="product-name">CAKES</a>
+                <p class="product-types">20 TYPES</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'images/pasteries.png' %}" alt="Pastries" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='pastries' %}" class="product-name">PASTRIES</a>
+                <p class="product-types">12 TYPES</p>
+            </div>
+
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'images/sweets.jpg' %}" alt="Sweets" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='sweets' %}" class="product-name">SWEETS</a>
+                <p class="product-types">25 TYPES</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'images/gift.jpg' %}" alt="Cookies" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='gift' %}" class="product-name">GIFT BOX</a>
+                <p class="product-types">10 TYPES</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'images/sevories.png' %}" alt="Bread" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='sevories' %}" class="product-name">SEVORIES</a>
+                <p class="product-types">34 TYPES</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'images/bread.jpg' %}" alt="Donuts" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='breads' %}" class="product-name">BREADS</a>
+                <p class="product-types">14 TYPES</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'images/cookies.jpg' %}" alt="Muffins" class="product-image">
+            <div class="product-info">
+               <a href="{% url 'catalog:category_products' category_name='cookies' %}" class="product-name">COOKIES & BISCUITS</a>
+                <p class="product-types">19 TYPES</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'images/creamroll.jpg' %}" alt="Cupcakes" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='rolls' %}" class="product-name">CREAM ROLL</a>
+                <p class="product-types">4 TYPES</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'images/muffins.jpg' %}" alt="Pies" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='muffins' %}" class="product-name">MUFFINS & FRUIT CAKE</a>
+                <p class="product-types">18 TYPES</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'images/chips.jpg' %}" alt="Ice Cream" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='chips' %}" class="product-name">CHIPS</a>
+                <p class="product-types">5 TYPES</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'images/chocolates.jpg' %}" alt="Ice Cream" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='chocolates' %}" class="product-name">CHOCOLATES</a>
+                <p class="product-types">10 TYPES</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'images/rusk.jpg' %}" alt="Ice Cream" class="product-image">
+            <div class="product-info">
+                <a href="{% url 'catalog:category_products' category_name='rusk' %}" class="product-name">RUSK</a>
+                <p class="product-types">7 TYPES</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

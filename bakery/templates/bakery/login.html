@@ -1,0 +1,246 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block title %}Login — Cherii{% endblock %}
+{% block content %}
+<style>
+    .auth-tabs {
+        display: flex;
+        border: 1px solid #e07b39;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        font-size: 1.4rem;
+        user-select: none;
+    }
+
+    .tab-btn {
+        flex: 1;
+        padding: 1rem 0;
+        cursor: pointer;
+        color: #e07b39;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background-color 0.3s ease;
+        position: relative;
+    }
+
+    .tab-active {
+        background-color: #e07b39;
+        color: white;
+        font-weight: 900;
+    }
+
+
+    #login-tab.tab-active::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-top: 2rem solid transparent;
+        border-bottom: 2rem solid transparent;
+        border-left: 20px solid white;
+        transform: translateX(100%);
+    }
+
+    #register-tab.tab-active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-top: 2rem solid transparent;
+        border-bottom: 2rem solid transparent;
+        border-right: 20px solid white;
+        transform: translateX(-100%);
+    }
+
+    form {
+        margin-top: 1rem;
+        font-weight: 600;
+    }
+
+    label {
+        font-weight: 500;
+        font-size: 24px;
+        margin-top: 1.5rem;
+        display: block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        border: 1px solid #c17979;
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        margin-top: 0.8rem;
+        font-size: 1rem;
+        color: #666;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    input[type="password"]::placeholder {
+        color: #d4c3c3;
+        font-weight: 400;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+        border-color: #e07b39;
+    }
+
+    .btn-login,
+    .btn-register {
+        margin-top: 2rem;
+        background-color: #f6d349;
+        color: #222;
+        border: none;
+        font-weight: 900;
+        font-size: 1.8rem;
+        width: 100%;
+        padding: 0.7rem 0;
+        border-radius: 30px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    .btn-login:hover,
+    .btn-register:hover {
+        background-color: #e5c536;
+    }
+
+    .small-link {
+        font-size: 0.9rem;
+        margin-top: 0.7rem;
+    }
+
+    .highlight-link {
+        color: #e07b39;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .highlight-link:hover {
+        text-decoration: underline;
+    }
+
+    .form-check-label {
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #e07b39;
+    }
+
+    .cake-img {
+        border-radius: 15px;
+        transform: rotate(-10deg);
+        background: linear-gradient(135deg, #e07b39 20%, #f6d349);
+        padding: 20px;
+        max-width: 320px;
+    }
+
+    .row.align-items-center {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    #login-form,
+    #register-form {
+        flex: 1 1 400px;
+    }
+
+    .d-none {
+        display: none !important;
+    }
+</style>
+
+
+
+<div class="container py-5" style="max-width: 1000px;">
+    <!-- Tabs -->
+    <div class="auth-tabs mb-4">
+        <div id="login-tab" class="tab-btn tab-active" onclick="showTab('login')">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+        </div>
+        <div id="register-tab" class="tab-btn tab-inactive" onclick="showTab('register')">
+            <i class="bi bi-person-plus"></i> Register
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <!-- Login Form -->
+        <div class="col-md-6" id="login-form">
+            <form method="POST">
+                {% csrf_token %}
+                {{ login_form.Email.label_tag }}
+                {{ login_form.Email }}
+                {{ login_form.password.label_tag }}
+                {{ login_form.password }}
+                <button type="submit" name="login" class="btn-login mt-3">Login</button>
+
+                <p class="small-link mt-2">
+                    <a href="#" class="highlight-link">Lost Your Password</a>
+                </p>
+                <p class="small-link">
+                    Don’t Have An Account? <a href="#" onclick="showTab('register')" class="highlight-link">Register</a>
+                </p>
+            </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="col-md-6 d-none" id="register-form">
+            <form method="POST">
+                {% csrf_token %}
+                {{ reg_form.email.label_tag }}
+                {{ reg_form.email }}
+                {{ reg_form.password.label_tag }}
+                {{ reg_form.password }}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ reg_form.first_name.label_tag }}
+                        {{ reg_form.first_name }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ reg_form.last_name.label_tag }}
+                        {{ reg_form.last_name }}
+                    </div>
+                </div>
+                <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" required>
+                    <label class="form-check-label">
+                        I have read and agree to the <a href="#" class="highlight-link">Terms</a> and <a href="#"
+                            class="highlight-link">Privacy Policy</a>
+                    </label>
+                </div>
+                <button type="submit" name="register" class="btn-register mt-3">Register</button>
+            </form>
+        </div>
+
+        <!-- Cake Image -->
+        <div class="col-md-6 text-center">
+            <img src="{% static 'images/login.jpg' %}" class="img-fluid cake-img" width="320">
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(tab) {
+        document.getElementById('login-form').classList.toggle('d-none', tab !== 'login');
+        document.getElementById('register-form').classList.toggle('d-none', tab !== 'register');
+        document.getElementById('login-tab').classList.toggle('tab-active', tab === 'login');
+        document.getElementById('login-tab').classList.toggle('tab-inactive', tab !== 'login');
+        document.getElementById('register-tab').classList.toggle('tab-active', tab === 'register');
+        document.getElementById('register-tab').classList.toggle('tab-inactive', tab !== 'register');
+    }
+</script>
+{% endblock %}
